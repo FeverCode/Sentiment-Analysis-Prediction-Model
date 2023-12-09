@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentiment Analysis</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="text-center">Sentiment Analysis</h2>
+      <form action="/predict" method="post" class="mt-4">
+        <div class="form-group">
+          <textarea
+            name="text"
+            class="form-control"
+            rows="4"
+            placeholder="Enter text here..."
+            required
+          ></textarea>
+        </div>
+        <input
+          type="submit"
+          class="btn btn-primary"
+          value="Analyze Sentiment"
+        />
+      </form>
+      {% if sentiment %}
+      <div class="mt-4">
+        <h3>Analysis Result:</h3>
+        <p><strong>Original Text:</strong> {{ original_text }}</p>
+        <p><strong>Sentiment:</strong> {{ sentiment }}</p>
+      </div>
+      {% endif %}
+
+      <div class="mt-4">
+        <h3>Sentiment Key:</h3>
+        <ul>
+          <li>
+            <strong>Positive:</strong> The text conveys a positive sentiment (Rating of above 3).
+          </li>
+          <li>
+            <strong>Neutral:</strong> The text is neutral or does not convey
+            strong emotions (Rating equal to 3).
+          </li>
+          <li>
+            <strong>Negative:</strong> The text conveys a negative sentiment (Rating below 3).
+          </li>
+        </ul>
+      </div>
+
+      <p class="mt-4">
+        <strong class="text-danger">Note:</strong> While this tool aims to
+        provide accurate sentiment analysis, please be aware that the results
+        may not always be correct. The interpretation of sentiment can be
+        subjective, and the model's prediction is based on the patterns it has
+        learned from the training data.
+      </p>
+      <!-- ... other parts of your HTML ... -->
+      <a href="/download" class="btn btn-info">Download Sample CSV</a>
+      <!-- ... rest of your HTML ... -->
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
