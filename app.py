@@ -35,7 +35,7 @@ def predict():
 @app.route('/download')
 def downloadFile():
     # For windows you need to use drive name [ex: F:/Example.pdf]
-    path = "media\sentiment-analysis-jumia-reviews.csv"
+    path = "media/sentiment-analysis-jumia-reviews.csv"
     return send_file(path, as_attachment=True)
 
 
